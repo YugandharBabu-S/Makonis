@@ -1,17 +1,27 @@
 # Makonis - Test Application
 
-# This Test Application is implemented in .NET6 - Web API + Angular
+# ---------------------------------
+
+# This Application is implemented in .NET6 - Web API + Angular
 
 # Steps to run the application
 
-# Run Web API
+# ----------------------------------
 
-# Open API Backend Solution using Visual Studio
+# 1) BackEnd API (.Net Core WebAPI)
 
-# Restore Nuget packges
+# --------------------------------
 
-# Run the Applicaiton
+# 1) Open API Backend Solution using Visual Studio
 
-# Configure and run Frontend by running below commands
+# 2) Restore Nuget packges
 
-# - 1) npm install and 2) npm start
+# 3) Run the Applicaiton
+
+# FrontEnd - (Angular)
+
+# ----------------------
+
+# 1) npm install
+
+# 2) npm start
