@@ -19,16 +19,22 @@ namespace BackEnd.Controllers
 
         [HttpGet]
         [Route("list")]
-        public   IEnumerable<PersonViewModel>  GetPersons()
+        public IEnumerable<PersonViewModel>  GetPersons()
         {
-            return   _personService.GetPersonList();
+            return _personService.GetPersonList();
         }
 
         [HttpPost]
         [Route("new")]
-        public void AddPerson([FromBody] PersonViewModel person)
+        public IActionResult AddPerson([FromBody] PersonViewModel person)
         {
-            _personService.AddPerson(person);
+            if (ModelState.IsValid)
+            {
+                _personService.AddPerson(person);
+                return Ok();
+;            }
+          
+          return BadRequest();
         }
 
           

@@ -44,13 +44,21 @@ export class NewPersonComponent implements OnInit {
       return;
     }
     if ( this.personForm.valid && this.personForm.dirty) {
-        const person = {...this.person, ...this.personForm.value };
-        this.personService.createPerson(person).subscribe({
+         const person = {...this.person, ...this.personForm.value };
+         this.personService.createPerson(person).subscribe({
         next: data => {
             this.router.navigateByUrl('/');
         },
         error: error => {
-          this.errorMessage = error.message;
+          let errorMessage = '';
+          if (error.error instanceof ErrorEvent) {
+            // client-side error
+           errorMessage = 'Error:' + error.error.message;
+          } else {
+            // server-side error
+            errorMessage = 'Error Code: ' + error.status + ' \n Message: ' + error.message;
+          }
+          alert(errorMessage);
         }
         });
 
